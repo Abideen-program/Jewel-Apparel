@@ -40,7 +40,7 @@ const App = () => {
                 return(
                     <div className='category-container' key={id}>
                         <div className='background-image'/>
-                        <div className='category-container-body'>
+                        <div className='category-body-container'>
                             <h2>{title}</h2>
                             <p>Shop Now</p>
                         </div>
