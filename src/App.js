@@ -1,57 +1,45 @@
-import './categories.styles.scss'
-const App = () => {
+import CategoryItem from "./components/category-item/category-item.component";
 
+import "./categories.styles.scss";
+
+const App = () => {
   const categories = [
     {
-      "id": 1,
-      "title": "hats",
-      "imageUrl": "https://i.ibb.co/cvpntL1/hats.png"
+      id: 1,
+      title: "hats",
+      imageUrl: "https://i.ibb.co/cvpntL1/hats.png",
     },
     {
-      "id": 2,
-      "title": "jackets",
-      "imageUrl": "https://i.ibb.co/px2tCc3/jackets.png"
+      id: 2,
+      title: "jackets",
+      imageUrl: "https://i.ibb.co/px2tCc3/jackets.png",
     },
     {
-      "id": 3,
-      "title": "sneakers",
-      "imageUrl": "https://i.ibb.co/0jqHpnp/sneakers.png"
+      id: 3,
+      title: "sneakers",
+      imageUrl: "https://i.ibb.co/0jqHpnp/sneakers.png",
     },
     {
-      "id": 4,
-      "title": "women",
-      "imageUrl": "https://i.ibb.co/GCCdy8t/womens.png"
+      id: 4,
+      title: "women",
+      imageUrl: "https://i.ibb.co/GCCdy8t/womens.png",
     },
     {
-      "id": 5,
-      "title": "men",
-      "imageUrl": "https://i.ibb.co/R70vBrQ/men.png"
-    }
-  ]
-  
-  return(
-    <div className='categories-container'>
-        {
-            categories.map(({ id, title, imageUrl}) => {
-                return(
-                    <div className='category-container' key={id}>
-                        <div className='background-image' 
-                           style={{
-                            
-                           }}
-                        />
+      id: 5,
+      title: "men",
+      imageUrl: "https://i.ibb.co/R70vBrQ/men.png",
+    },
+  ];
 
-                        <div className='category-body-container'>
-                            <h2>{title}</h2>
-                            <p>Shop Now</p>
-                        </div>
-                    </div>
-                )
-            }
-            ) 
-        }
+  return (
+    <div className="categories-container">
+      {categories.map((category) => {
+        return (
+          <CategoryItem  category = {category} key={category.id}/>
+        );
+      })}
     </div>
-  )
-}
+  );
+};
 
 export default App;
