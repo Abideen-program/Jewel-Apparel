@@ -4,7 +4,6 @@ const CategoryItem = (props) => {
   const { title, imageUrl } = props.category;
   return (
     <div className="category-container">
-
       <div
         className="background-image"
         style={{
@@ -16,7 +15,6 @@ const CategoryItem = (props) => {
         <h2>{title}</h2>
         <p>Shop Now</p>
       </div>
-      
     </div>
   );
 };
