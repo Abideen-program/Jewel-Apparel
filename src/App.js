@@ -1,27 +1,6 @@
-import { Routes, Route, Outlet } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
+import Navigator from "./routes/navigation/navigation.component";
 import Home from "./routes/home/home.component";
-
-const Navigator = () => {
-  return (
-    <div>
-      <div>
-        <h1>This is the Navigation Bar</h1>
-      </div>
-      <Outlet />
-      <Footer />
-    </div>
-  );
-};
-
-const Footer = () => {
-    return (
-      <div>
-        <div>
-          <h1>This is the Footer Bar</h1>
-        </div>
-      </div>
-    );
-  };
   
 
 const Shop = () => {
@@ -34,7 +13,7 @@ const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Navigator />}>
-        <Route path="/Home" element={<Home />} />
+        <Route index element={<Home />} />
         <Route path="/Shop" element={<Shop />} />
       </Route>
     </Routes>
