@@ -4,10 +4,7 @@ import SignUp from "../../components/sign-up/sign-up.component";
 const SignIn = () => {
     const logGoogleUser = async () =>  {
         const { user } = await signInWithGooglePopup();
-        const userDocRef = await createUserDocumentFromAuth(user)
-        console.log(user)
-        console.log(userDocRef)
-
+        await createUserDocumentFromAuth(user)
     }
 
     return (
