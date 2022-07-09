@@ -1,5 +1,8 @@
 import { useState } from "react";
-import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth } from "../../utilities/firebase/firebase.utilities";
+import {
+  createAuthUserWithEmailAndPassword,
+  createUserDocumentFromAuth,
+} from "../../utilities/firebase/firebase.utilities";
 
 const defaultFormFields = {
   displayName: "",
@@ -12,42 +15,42 @@ const SignUp = () => {
   const [formFields, setformFields] = useState(defaultFormFields);
 
   const { displayName, email, password, confirmPassword } = formFields;
-    console.log(formFields)
+  console.log(formFields);
 
-    const changeHandler = (event) => {
-        const { name, value } = event.target;
-        setformFields({ ...formFields, [name]: value });
-      };
+  const changeHandler = (event) => {
+    const { name, value } = event.target;
+    setformFields({ ...formFields, [name]: value });
+  };
 
-      const resetForm = () => {
-        setformFields(defaultFormFields)
-      }
+  const resetForm = () => {
+    setformFields(defaultFormFields);
+  };
 
-    const handleSubmit = async (event) => {
-        event.preventDefault()
+  const handleSubmit = async (event) => {
+    event.preventDefault();
 
-        if(password !== confirmPassword) {
-            alert('Password does not match')
-            return;
-        }
-
-        try {
-            const { user } = await createAuthUserWithEmailAndPassword(email, password)
-
-            await createUserDocumentFromAuth(user, { displayName })
-
-            resetForm()
-            
-        }
-        
-        catch (error ){
-            if (error.code === 'auth/email-already-in-use') {
-                alert('cannot create user, email in use')
-            } else{
-                console.log(error)
-            }
-        }
+    if (password !== confirmPassword) {
+      alert("Password does not match");
+      return;
     }
+
+    try {
+      const { user } = await createAuthUserWithEmailAndPassword(
+        email,
+        password
+      );
+
+      await createUserDocumentFromAuth(user, { displayName });
+
+      resetForm();
+    } catch (error) {
+      if (error.code === "auth/email-already-in-use") {
+        alert("cannot create user, email in use");
+      } else {
+        console.log(error);
+      }
+    }
+  };
 
   return (
     <div>
