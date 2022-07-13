@@ -22,7 +22,6 @@ const SignUp = () => {
   const [formFields, setformFields] = useState(defaultFormFields);
 
   const { displayName, email, password, confirmPassword } = formFields;
-  console.log(formFields);
 
   const changeHandler = (event) => {
     const { name, value } = event.target;
@@ -101,7 +100,7 @@ const SignUp = () => {
           value={confirmPassword}
         />
 
-        <Button buttonType={"google"} type="submit" >Sign Up</Button>
+        <Button type="submit" >Sign Up</Button>
       </form>
     </div>
   );
