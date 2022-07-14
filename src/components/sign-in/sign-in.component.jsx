@@ -40,18 +40,15 @@ const SignIn = () => {
     event.preventDefault();
 
     try {
-      await signInAuthUserWithEmailandPassword(email, password)
+      await signInAuthUserWithEmailandPassword(email, password);
       resetForm();
-    } 
-    
-    catch (error) {
-
-      switch(error.code) {
-        case 'auth/wrong-password':
-          alert('password incorrect')
+    } catch (error) {
+      switch (error.code) {
+        case "auth/wrong-password":
+          alert("password incorrect");
           break;
-        case 'auth/user-not-found':
-          alert('this user is not registered')
+        case "auth/user-not-found":
+          alert("this user is not registered");
           break;
         default:
           console.log(error);
@@ -84,9 +81,10 @@ const SignIn = () => {
 
         <div className="buttons-container">
           <Button type="submit">Sign Up</Button>
-          <Button buttonType={'google'} onClick={singInWithGoogle}>Google Sign-in</Button>
+          <Button buttonType={"google"} onClick={singInWithGoogle}>
+            Google Sign-in
+          </Button>
         </div>
-
       </form>
     </div>
   );
