@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 
 import {
   signInWithGooglePopup,
@@ -10,6 +10,8 @@ import Button from "../button/button.component";
 
 import FormInput from "../form-input/form-input.component";
 
+import { UserContext } from "../../context/user.context";
+
 import "./sign-in.styles.scss";
 
 const defaultFormFields = {
@@ -18,6 +20,8 @@ const defaultFormFields = {
 };
 
 const SignIn = () => {
+  const { setCurrentUser } = useContext(UserContext)
+
   const [formFields, setformFields] = useState(defaultFormFields);
 
   const { email, password } = formFields;
@@ -40,7 +44,10 @@ const SignIn = () => {
     event.preventDefault();
 
     try {
-      await signInAuthUserWithEmailandPassword(email, password);
+     const { user } = await signInAuthUserWithEmailandPassword(email, password);
+
+     setCurrentUser(user)
+     
       resetForm();
     } catch (error) {
       switch (error.code) {
