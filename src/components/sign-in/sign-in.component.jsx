@@ -20,11 +20,11 @@ const defaultFormFields = {
 };
 
 const SignIn = () => {
-  const { setCurrentUser } = useContext(UserContext)
-
   const [formFields, setformFields] = useState(defaultFormFields);
 
   const { email, password } = formFields;
+
+  const { setCurrentUser } = useContext(UserContext)
 
   const changeHandler = (event) => {
     const { name, value } = event.target;
@@ -38,6 +38,7 @@ const SignIn = () => {
   const singInWithGoogle = async () => {
     const { user } = await signInWithGooglePopup();
     await createUserDocumentFromAuth(user);
+    setCurrentUser(user)
   };
 
   const handleSubmit = async (event) => {
@@ -46,9 +47,10 @@ const SignIn = () => {
     try {
      const { user } = await signInAuthUserWithEmailandPassword(email, password);
 
-     setCurrentUser(user)
-     
+      setCurrentUser(user)
+
       resetForm();
+
     } catch (error) {
       switch (error.code) {
         case "auth/wrong-password":
@@ -87,8 +89,8 @@ const SignIn = () => {
         />
 
         <div className="buttons-container">
-          <Button type="submit">Sign Up</Button>
-          <Button buttonType={"google"} onClick={singInWithGoogle}>
+          <Button type="submit">Sign In</Button>
+          <Button type='text' buttonType={"google"} onClick={singInWithGoogle}>
             Google Sign-in
           </Button>
         </div>
