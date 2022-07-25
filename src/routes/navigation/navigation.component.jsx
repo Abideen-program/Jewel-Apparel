@@ -15,9 +15,9 @@ const Navigator = () => {
   console.log(currentUser);
 
   const signoutHandler = async () => {
-    await signOutUSer()
-    setCurrentUser(null)
-  }
+    await signOutUSer();
+    setCurrentUser(null);
+  };
 
   return (
     <Fragment>
@@ -31,7 +31,9 @@ const Navigator = () => {
             SHOP
           </Link>
           {currentUser ? (
-            <span className="nav-links" onClick={signoutHandler} >Sign out</span>
+            <span className="nav-links" onClick={signoutHandler}>
+              Sign out
+            </span>
           ) : (
             <Link className="nav-links" to="auth">
               SING IN

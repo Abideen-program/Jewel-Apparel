@@ -11,7 +11,7 @@ import Button from "../button/button.component";
 
 import FormInput from "../form-input/form-input.component";
 
-import './sign-up.styles.scss'
+import "./sign-up.styles.scss";
 
 const defaultFormFields = {
   displayName: "",
@@ -25,7 +25,7 @@ const SignUp = () => {
 
   const { displayName, email, password, confirmPassword } = formFields;
 
-  const { setCurrentUser } = useContext(UserContext)
+  const { setCurrentUser } = useContext(UserContext);
 
   const changeHandler = (event) => {
     const { name, value } = event.target;
@@ -52,10 +52,9 @@ const SignUp = () => {
 
       await createUserDocumentFromAuth(user, { displayName });
 
-      setCurrentUser(user)
+      setCurrentUser(user);
 
       resetForm();
-      
     } catch (error) {
       if (error.code === "auth/email-already-in-use") {
         alert("cannot create user, email in use");
@@ -70,9 +69,8 @@ const SignUp = () => {
       <h2>Don't have an account?</h2>
       <span>Sign up with your eamil and password</span>
       <form onSubmit={handleSubmit}>
-
         <FormInput
-        label='Display Name'
+          label="Display Name"
           type="text"
           required
           onChange={changeHandler}
@@ -81,7 +79,7 @@ const SignUp = () => {
         />
 
         <FormInput
-            label='Email'
+          label="Email"
           type="email"
           required
           onChange={changeHandler}
@@ -90,7 +88,7 @@ const SignUp = () => {
         />
 
         <FormInput
-        label='Password'
+          label="Password"
           type="password"
           required
           onChange={changeHandler}
@@ -99,7 +97,7 @@ const SignUp = () => {
         />
 
         <FormInput
-        label='Confirm Password'
+          label="Confirm Password"
           type="password"
           required
           onChange={changeHandler}
@@ -107,7 +105,7 @@ const SignUp = () => {
           value={confirmPassword}
         />
 
-        <Button type="submit" >Sign Up</Button>
+        <Button type="submit">Sign Up</Button>
       </form>
     </div>
   );
