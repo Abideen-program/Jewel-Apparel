@@ -6,6 +6,8 @@ import { ReactComponent as CrownLogo } from "../../assets/crown.svg";
 
 import CartIcon from "../../components/cart-icon/cart-icon.component";
 
+import CartDropdown from "../../components/cart-dropdown/cart-dropdown.component";
+
 import { UserContext } from "../../context/user.context";
 
 import { signOutUSer } from "../../utilities/firebase/firebase.utilities";
@@ -40,6 +42,8 @@ const Navigator = () => {
 
           <CartIcon />
         </div>
+
+        <CartDropdown />
       </div>
       <Outlet />
     </Fragment>
