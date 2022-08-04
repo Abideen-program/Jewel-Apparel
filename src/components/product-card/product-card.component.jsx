@@ -9,9 +9,11 @@ import "./product-card.styles.scss";
 const ProductCard = ({ product }) => {
   const { name, imageUrl, price } = product;
 
-  const { addItemToCart } = useContext(CartContext);
+  const { addItemToCart, cartCount, setCartCount } = useContext(CartContext);
 
-  const addToCart = () => addItemToCart(product);
+  const addToCart = () => {
+   return (addItemToCart(product), setCartCount(cartCount + 1));
+  }
 
   return (
     <div className="product-card-container">
