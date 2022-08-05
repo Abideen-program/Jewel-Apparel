@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
 const checkCartItems = (cartItems, productToAdd) => {
   //check if the item is present in the cartItems
@@ -37,6 +37,13 @@ export const CartProvider = ({ children }) => {
     setCartItems(checkCartItems(cartItems, productToAdd));
   };
 
-  const value = { isCartOpen, setIsCartOpen, cartItems, addItemToCart, cartCount, setCartCount };
+  useEffect(() => {
+    const newCartCount = cartItems.reduce((total, cartItem) => {
+      return total + cartItem.quantity
+    }, 0)
+    setCartCount(newCartCount)
+  }, [cartItems])
+
+  const value = { isCartOpen, setIsCartOpen, cartItems, addItemToCart, cartCount};
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 };

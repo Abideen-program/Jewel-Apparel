@@ -8,6 +8,8 @@ import Shop from "./routes/shop/shop.component";
 
 import Authentication from "./routes/authentication/authentication.component";
 
+import CheckOut from "./components/checkout/checkout.component";
+
 const App = () => {
   return (
     <Routes>
@@ -15,6 +17,7 @@ const App = () => {
         <Route index element={<Home />} />
         <Route path="/Shop" element={<Shop />} />
         <Route path="/auth" element={<Authentication />} />
+        <Route path="/checkout" element={<CheckOut />} />
       </Route>
     </Routes>
   );

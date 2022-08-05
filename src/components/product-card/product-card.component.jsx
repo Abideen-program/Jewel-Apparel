@@ -9,10 +9,10 @@ import "./product-card.styles.scss";
 const ProductCard = ({ product }) => {
   const { name, imageUrl, price } = product;
 
-  const { addItemToCart, cartCount, setCartCount } = useContext(CartContext);
+  const { addItemToCart } = useContext(CartContext);
 
   const addToCart = () => {
-   return (addItemToCart(product), setCartCount(cartCount + 1));
+   return (addItemToCart(product));
   }
 
   return (
