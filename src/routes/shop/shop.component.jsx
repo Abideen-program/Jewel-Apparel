@@ -9,15 +9,17 @@ const Shop = () => {
   return (
     <Fragment>
       {Object.keys(CategoriesMap).map((title) => {
-        <Fragment key={title}>
-          <h2>{title}</h2>
+        return (
+          <Fragment key={title}>
+            <h2>{title}</h2>
 
-          <div className="products-container">
-            {CategoriesMap[title].map((product) => {
-              return <ProductCard key={product.id} product={product} />;
-            })}
-          </div>
-        </Fragment>;
+            <div className="products-container">
+              {CategoriesMap[title].map((product) => {
+                return <ProductCard key={product.id} product={product} />;
+              })}
+            </div>
+          </Fragment>
+        );
       })}
     </Fragment>
   );
