@@ -1,9 +1,9 @@
 import DirectoryItem from "../directory-item/directory-item.component";
 
-import './directory.styles.scss'
+import "./directory.styles.scss";
 
 const Directory = (props) => {
-    const { categories } = props
+  const { categories } = props;
   return (
     <div className="directory-container">
       {categories.map((category) => {
@@ -13,4 +13,4 @@ const Directory = (props) => {
   );
 };
 
-export default Directory
+export default Directory;
